@@ -22,7 +22,7 @@ Link : https://pcod-c4j4.onrender.com/
 | Visualization   | Matplotlib, Seaborn |
  -->
 
-# 🌸 FemCare – PCOS Risk Assessment Tool
+# 🌸 FemCare – PCOD Risk Assessment Tool
 
 A machine learning powered web application that helps women estimate their **Polycystic Ovarian Disease (PCOD) risk** using common health indicators, lifestyle habits, and symptoms.
 
@@ -87,7 +87,7 @@ The project follows a complete machine learning pipeline:
 
 # 📁 Dataset
 
-The dataset used for training the model contains patient health records related to **PCOS symptoms and lifestyle factors**.
+The dataset used for training the model contains patient health records related to **PCOD symptoms and lifestyle factors**.
 
 Example features used in the model:
 
@@ -180,7 +180,7 @@ Data Preprocessing
    ↓
 Machine Learning Model (CatBoost)
    ↓
-PCOS Risk Prediction
+PCOD Risk Prediction
    ↓
 Mental Health Evaluation
    ↓
@@ -223,7 +223,7 @@ http://127.0.0.1:5000
 # 📂 Project Structure
 
 ```
-PCOS-Risk-Predictor
+PCOD-Risk-Predictor
 │
 ├── PCOD.ipynb              # Model training notebook
 ├── PCOD_data.csv           # Dataset
@@ -254,6 +254,6 @@ PCOS-Risk-Predictor
 This tool is designed **for educational and awareness purposes only**.
 It does not replace professional medical diagnosis or treatment.
 
-If you experience symptoms related to PCOS, consult a qualified healthcare professional.
+If you experience symptoms related to PCOD, consult a qualified healthcare professional.
 
 ---
