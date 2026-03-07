@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>FemCare | PCOD Risk Assessment</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #9c27b0;
+        --primary-light: #e1bee7;
+        --secondary: #ff4081;
+        --white: #ffffff;
+        --gray: #f5f5f5;
+        --dark: #333333;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fff5f7;
+        color: #4a4a4a;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+          center/cover;
+        opacity: 0.2;
+        z-index: 0;
+      }
+      .header-content {
+        position: relative;
+        z-index: 1;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .hero-section {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-image {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .form-container {
+        background: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        margin-bottom: 3rem;
+        width: 90%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-family: "Poppins", sans-serif;
+        transition: all 0.3s;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px var(--primary-light);
+      }
+      button {
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        display: block;
+        margin: 2rem auto 0;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+      }
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4);
+      }
+
+      .info-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .info-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .info-card h3 {
+        color: var(--primary);
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
+
+      .info-card .icon {
+        font-size: 2.5rem;
+        color: var(--secondary);
+        margin-bottom: 1rem;
+      }
+
+      .stats-section {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 3rem;
+        border-radius: 15px;
+        margin: 3rem 0;
+        text-align: center;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .stat-item h2 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        color: #888;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .hero-section {
+          flex-direction: column;
+        }
+
+        .form-container {
+          width: 100%;
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1>🌸 Understand Your PCOD Risk</h1>
+        <p class="subtitle">
+          Take control of your physical and mental well-being with our
+          AI-powered PCOD risk assessment
+        </p>
+      </div>
+    </header>
+    <div class="container">
+      <section class="hero-section">
+        <div class="hero-text">
+          <h2>Why PCOD Awareness Matters</h2>
+          <p>
+            Polycystic Ovarian Disease (PCOD) affects millions of women during
+            their reproductive years, yet many remain unaware of their condition
+            due to mild, irregular, or ignored symptoms.
+          </p>
+          <p>
+            Delayed diagnosis can lead to long-term complications such as
+            hormonal imbalance, fertility issues, insulin resistance, and
+            emotional distress. Early awareness plays a crucial role in managing
+            PCOD effectively.
+          </p>
+          <p>
+            Our AI-based screening tool helps women identify potential PCOD risk
+            early using symptom-based and lifestyle inputs, without the need for
+            lab reports.
+          </p>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Woman consulting with doctor"
+          />
+        </div>
+      </section>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="icon">💡</div>
+          <h3>What is PCOD?</h3>
+          <p>
+            Polycystic Ovarian Disease is a hormonal disorder where the ovaries
+            may produce excess androgens, leading to irregular ovulation. This
+            can result in menstrual irregularities, metabolic issues, and
+            visible physical symptoms. PCOD varies from person to person, making
+            early symptom recognition essential.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="icon">⚠️</div>
+          <h3>Common Symptoms</h3>
+          <p>
+            Look out for irregular periods, excessive hair growth, acne, weight
+            gain, and hair thinning. Symptoms often appear around puberty.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="icon">❤️</div>
+          <h3>Why Get Assessed?</h3>
+          <p>
+            Early detection helps manage symptoms and reduces risk of diabetes,
+            heart disease, and endometrial cancer associated with PCOS.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-section">
+        <h2>PCOD By The Numbers</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h2>10%</h2>
+            <p>of women worldwide have PCOS</p>
+          </div>
+          <div class="stat-item">
+            <h2>70%</h2>
+            <p>cases remain undiagnosed</p>
+          </div>
+          <div class="stat-item">
+            <h2>3-5x</h2>
+            <p>higher risk of diabetes</p>
+          </div>
+          <div class="stat-item">
+            <h2>50%</h2>
+            <p>experience weight challenges</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h2>Take the Assessment Now</h2>
+        <p>
+          Answer these questions to understand your PCOS risk factors. The
+          assessment takes about 2 minutes.
+        </p>
+
+        <form action="/predict" method="post">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="age">Age (years)</label>
+              <input
+                type="number"
+                id="age"
+                name="Age (yrs)"
+                min="13"
+                max="60"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="weight">Weight (kg)</label>
+              <input
+                type="number"
+                step="0.1"
+                id="weight"
+                name="Weight (Kg)"
+                min="30"
+                max="200"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="height">Height (cm)</label>
+              <input
+                type="number"
+                step="0.1"
+                id="height"
+                name="Height(Cm)"
+                min="120"
+                max="220"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="cycle">Menstrual Cycle Pattern</label>
+              <select id="cycle" name="Cycle(R/I)" required>
+                <option value="Regular">Regular (21-35 days)</option>
+                <option value="Irregular">Irregular</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cycle_length">Cycle Length (days)</label>
+              <input
+                type="number"
+                id="cycle_length"
+                name="Cycle length(days)"
+                min="1"
+                max="90"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="marriage">Marriage Duration (years)</label>
+              <input
+                type="number"
+                id="marriage"
+                name="Marraige Status (Yrs)"
+                min="0"
+                max="50"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="pregnant">Ever been pregnant?</label>
+              <select id="pregnant" name="Pregnant(Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="abortions">Number of abortions</label>
+              <input
+                type="number"
+                id="abortions"
+                name="No. of abortions"
+                min="0"
+                max="10"
+              />
+            </div>
+          </div>
+
+          <h3 style="margin-top: 2rem; color: var(--primary)">Symptoms</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="weight_gain">Recent weight gain?</label>
+              <select id="weight_gain" name="Weight gain(Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hair_growth">Excessive hair growth?</label>
+              <select id="hair_growth" name="hair growth(Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="skin_dark">Skin darkening?</label>
+              <select id="skin_dark" name="Skin darkening (Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="hair_loss">Hair loss?</label>
+              <select id="hair_loss" name="Hair loss(Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pimples">Pimples or acne?</label>
+              <select id="pimples" name="Pimples(Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 2rem; color: var(--primary)">
+            Lifestyle Factors
+          </h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fast_food">Frequent fast food consumption?</label>
+              <select id="fast_food" name="Fast food (Y/N)" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="exercise">Regular exercise?</label>
+              <select id="exercise" name="Reg.Exercise(Y/N)" required>
+                <option value="1">Yes (3+ times/week)</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+          </div>
+
+          
+
+    <!-- ================= MENTAL HEALTH SECTION ================= -->
+
+    <h2 style="margin-top: 3rem; color: var(--primary)">
+      Mental Health Screening
+    </h2>
+
+    <p>
+      Over the last <strong>2 weeks</strong>, how often have you been bothered
+      by the following problems?
+    </p>
+
+    <p>
+      <strong>
+        0 = Not at all | 1 = Several days | 2 = More than half the days | 3 =
+        Nearly every day
+      </strong>
+    </p>
+
+    <!-- ================= GAD-7 ================= -->
+
+    <h3 style="margin-top: 2rem; color: var(--secondary)">
+      GAD-7 Anxiety Questionnaire
+    </h3>
+
+    <div class="form-grid">
+      <!-- Repeatable Question Block -->
+      <div class="form-group">
+        <label>1. Feeling nervous, anxious, or on edge</label>
+        <select name="gad1" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>2. Not being able to stop or control worrying</label>
+        <select name="gad2" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>3. Worrying too much about different things</label>
+        <select name="gad3" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>4. Trouble relaxing</label>
+        <select name="gad4" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>5. Being so restless that it is hard to sit still</label>
+        <select name="gad5" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>6. Becoming easily annoyed or irritable</label>
+        <select name="gad6" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>7. Feeling afraid as if something awful might happen</label>
+        <select name="gad7" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ================= PHQ-9 ================= -->
+
+    <h3 style="margin-top: 3rem; color: var(--secondary)">
+      PHQ-9 Depression Questionnaire
+    </h3>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>1. Little interest or pleasure in doing things</label>
+        <select name="phq1" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>2. Feeling down, depressed, or hopeless</label>
+        <select name="phq2" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label
+          >3. Trouble falling or staying asleep, or sleeping too much</label
+        >
+        <select name="phq3" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>4. Feeling tired or having little energy</label>
+        <select name="phq4" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>5. Poor appetite or overeating</label>
+        <select name="phq5" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>6. Feeling bad about yourself — or that you are a failure</label>
+        <select name="phq6" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>7. Trouble concentrating on things</label>
+        <select name="phq7" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>8. Moving or speaking slowly OR being fidgety/restless</label>
+        <select name="phq8" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label
+          >9. Thoughts that you would be better off dead or hurting
+          yourself</label
+        >
+        <select name="phq9" required>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit">Assess My PCOD Risk</button>
+    </form>
+    </div>
+  </body>
+</html>
