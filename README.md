@@ -193,6 +193,18 @@ result.html (Result Page)
 
 ---
 
+## 🛠 Tech Stack
+
+| Component        | Technology              |
+| ---------------- | ----------------------- |
+| Frontend         | HTML5, CSS3, JavaScript |
+| Backend          | Python Flask            |
+| Machine Learning | Scikit-learn, CatBoost  |
+| Data Processing  | Pandas, NumPy           |
+| Visualization    | Matplotlib, Seaborn     |
+
+---
+
 # ⚙ Installation
 
 Clone the repository:
