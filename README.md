@@ -226,7 +226,7 @@ http://127.0.0.1:5000
 PCOS-Risk-Predictor
 │
 ├── PCOD.ipynb              # Model training notebook
-├── PCOS_data.csv           # Dataset
+├── PCOD_data.csv           # Dataset
 ├── model_joblib.pkl        # Trained ML model
 ├── app.py                  # Flask backend
 ├── templates
